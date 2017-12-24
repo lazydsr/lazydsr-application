@@ -22,7 +22,7 @@ spring:
     request-context-attribute: request
     #    prefix=
     #    settings.*=
-    suffix: html
+    suffix: .html
     #    template-loader-path=classpath:/templates/ #comma-separated list
     #    view-names= # whitelist of view names that can be resolved
   datasource:
@@ -32,8 +32,8 @@ spring:
 #        url: jdbc:mysql://qdm163903142.my3w.com:3306/qdm163903142_db?useUnicode=true&characterEncoding=utf-8&useSSL=false
 #        username: qdm163903142
 #        password: yanzi123
-#        url: jdbc:mysql://localhost:3306/lazydsr-manager?useUnicode=true&characterEncoding=utf-8&useSSL=false
-        url: jdbc:mysql://172.25.1.233:3306/lazydsr-manager?useUnicode=true&characterEncoding=utf-8&useSSL=false
+        url: jdbc:mysql://localhost:3306/lazydsr-manager?useUnicode=true&characterEncoding=utf-8&useSSL=false
+#        url: jdbc:mysql://172.25.1.233:3306/lazydsr-manager?useUnicode=true&characterEncoding=utf-8&useSSL=false
         username: root
         password: root
         initialSize: 5

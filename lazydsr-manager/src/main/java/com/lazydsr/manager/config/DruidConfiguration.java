@@ -32,7 +32,7 @@ public class DruidConfiguration {
     }
 
     @Bean
-    public ServletRegistrationBean statViewServle() {
+    public ServletRegistrationBean statViewServlet() {
         ServletRegistrationBean servletRegistrationBean = new ServletRegistrationBean(new StatViewServlet(), "/druid/*");
         //白名单：
         servletRegistrationBean.addInitParameter("allow", "172.25.1.233,172.25.80.36,127.0.0.1");

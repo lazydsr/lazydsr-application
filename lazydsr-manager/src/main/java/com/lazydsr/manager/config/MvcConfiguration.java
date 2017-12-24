@@ -10,7 +10,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
  * PACKAGE_NAME: com.lazy.lazyweb.config
  * Created by Lazy on 2017/10/9 10:57
  * Version: 0.1
- * Info: @TODO:...
+ * Info: 给静态资源添加额外的路径
  */
 @Configuration
 public class MvcConfiguration extends WebMvcConfigurerAdapter {

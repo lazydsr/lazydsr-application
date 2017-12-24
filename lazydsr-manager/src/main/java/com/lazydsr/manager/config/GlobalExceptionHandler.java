@@ -9,8 +9,6 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.autoconfigure.web.ErrorController;
 import org.springframework.core.annotation.AnnotationUtils;
 import org.springframework.http.HttpStatus;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
@@ -31,10 +29,10 @@ import java.util.Map;
  * PACKAGE_NAME: com.lazy.lazyweb.config
  * Created by Lazy on 2017/10/10 16:29
  * Version: 0.1
- * Info: @TODO:...
+ * Info: 全局异常处理
  */
-@ControllerAdvice
-@Controller
+//@ControllerAdvice
+//@Controller
 @Slf4j
 public class GlobalExceptionHandler implements ErrorController {
 
