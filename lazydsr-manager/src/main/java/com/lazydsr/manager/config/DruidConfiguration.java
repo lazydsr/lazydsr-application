@@ -1,5 +1,6 @@
 package com.lazydsr.manager.config;
 
+import com.alibaba.druid.pool.DruidDataSource;
 import com.alibaba.druid.support.http.StatViewServlet;
 import com.alibaba.druid.support.http.WebStatFilter;
 import lombok.extern.slf4j.Slf4j;
@@ -28,7 +29,7 @@ public class DruidConfiguration {
     @Primary
     @ConfigurationProperties(prefix = "spring.datasource.druid")
     public DataSource dataSource() {
-        return DataSourceBuilder.create().type(com.alibaba.druid.pool.DruidDataSource.class).build();
+        return DataSourceBuilder.create().type(DruidDataSource.class).build();
     }
 
     @Bean

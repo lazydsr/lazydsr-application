@@ -1,6 +1,6 @@
 package com.lazydsr.manager.service.impl;
 
-import com.lazydsr.manager.dao.UserDao;
+import com.lazydsr.manager.repository.UserRepository;
 import com.lazydsr.manager.po.User;
 import com.lazydsr.manager.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,22 +18,27 @@ import java.util.List;
  */
 @Service
 public class UserServiceImpl implements UserService {
-    @Autowired
-    private UserDao userDao;
+   @Autowired
+   private UserRepository userRepository;
 
     @Override
     public User findUserById(String id) {
-        return userDao.findOne(id);
+        return userRepository.findOne(id);
     }
 
     @Override
     public User save(User user) {
-        return userDao.save(user);
+        return userRepository.save(user);
     }
 
     @Override
     public List<User> findUserByName(String name) {
         System.out.println("aaaaaaa111111111111"+name);
-        return userDao.findUserByName(name);
+        return userRepository.findUserByName(name);
+    }
+
+    @Override
+    public List<User> findUserByName2(String name) {
+        return userRepository.findUserByName2(name);
     }
 }
