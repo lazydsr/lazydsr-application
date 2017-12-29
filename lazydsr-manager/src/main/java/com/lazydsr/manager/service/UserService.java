@@ -3,6 +3,7 @@ package com.lazydsr.manager.service;
 import com.lazydsr.manager.po.User;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * UserService
@@ -19,5 +20,7 @@ public interface UserService {
 
     List<User> findUserByName(String name);
     List<User> findUserByName2(String name);
+
+    List<String> findUserNameBytest();
 
 }

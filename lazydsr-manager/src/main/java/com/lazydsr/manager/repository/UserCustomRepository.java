@@ -1,4 +1,8 @@
-package com.lazydsr.manager.dao;
+package com.lazydsr.manager.repository;
+
+import org.springframework.stereotype.Repository;
+
+import java.util.List;
 
 /**
  * UserDao
@@ -8,6 +12,6 @@ package com.lazydsr.manager.dao;
  * Version: 0.1
  * Info: User复杂业务自定义Dao接口
  */
-public interface UserDao {
-    String findUserNameBytest();
+public interface UserCustomRepository {
+    List<String> findUserNameBytest();
 }
