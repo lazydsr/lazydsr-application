@@ -43,8 +43,17 @@ public class UserServiceTest {
 
     @Test
     public void findByUserName() {
-        List<User> users = userService.findUserByName("aa");
+        System.out.println("findUserByName start");
+        List<User> users = userService.findUserByName("dd");
         System.out.println(users);
+        System.out.println("findUserByName stop");
+    }
+    @Test
+    public void findByUserName2() {
+        System.out.println("findUserByName2 start");
+        List<User> users = userService.findUserByName2("dd");
+        System.out.println(users);
+        System.out.println("findUserByName2 stop");
     }
 
 }

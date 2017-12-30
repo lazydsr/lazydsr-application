@@ -1,4 +1,4 @@
-package com.lazydsr.manager.dao;
+package com.lazydsr.manager.repository;
 
 import com.lazydsr.manager.po.User;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -16,7 +16,11 @@ import java.util.List;
  * Version: 0.1
  * Info: 用户Dao
  */
-public interface UserDao extends JpaRepository<User, String> {
-    @Query(value = "select * from user t where username=:username", nativeQuery = true)
+@Repository
+public interface UserRepository extends JpaRepository<User, String>,UserCustomRepository {
+    @Query(value = "select * from user t where username=?1", nativeQuery = true)
     List<User> findUserByName(@Param("username") String username);
+
+    @Query(value = "select t from User t where username=?1")
+    List<User> findUserByName2(@Param("username") String username);
 }
