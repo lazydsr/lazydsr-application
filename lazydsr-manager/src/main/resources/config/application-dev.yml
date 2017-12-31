@@ -23,7 +23,7 @@ spring:
     request-context-attribute: request
     #    prefix=
     #    settings.*=
-    suffix: .html
+    #    suffix: .html
     #    template-loader-path=classpath:/templates/ #comma-separated list
     #    view-names= # whitelist of view names that can be resolved
   datasource:
