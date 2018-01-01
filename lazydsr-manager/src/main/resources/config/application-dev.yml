@@ -60,4 +60,7 @@ spring:
 #使用开发时日志配置
 logging:
   config: classpath:config/logback-spring.xml
+interceptor:
+  user:
+    status: false
 

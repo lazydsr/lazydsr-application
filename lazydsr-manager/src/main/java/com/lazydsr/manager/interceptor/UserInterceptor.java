@@ -54,7 +54,7 @@ public class UserInterceptor extends HandlerInterceptorAdapter {
         User user = (User) request.getSession().getAttribute("user");
         if (user != null) {
             //System.out.println("用户已登录");
-            log.error("用户已登录,用户ID>>>>>>>" + user.getUserName() + ",用户IP地址>>>>" + request.getRemoteAddr() + ",用户主机>>>>" + request.getRemoteHost());
+            log.error("用户已登录,用户ID>>>>>>>" + user.getUsername() + ",用户IP地址>>>>" + request.getRemoteAddr() + ",用户主机>>>>" + request.getRemoteHost());
             //System.out.println("放行");
             log.error("放行");
             //System.out.println("＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝");

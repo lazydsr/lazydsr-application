@@ -1,6 +1,7 @@
 package com.lazydsr.manager.config.bean;
 
-import org.springframework.context.annotation.PropertySource;
+import lombok.Data;
+import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
 
 /**
@@ -12,7 +13,8 @@ import org.springframework.stereotype.Component;
  * Info: @TODO:...
  */
 @Component
-@PropertySource("")
+@Data
+@ConfigurationProperties(prefix = "interceptor.user")
 public class UserInterceptorConfigBean {
-
+    private boolean status;
 }

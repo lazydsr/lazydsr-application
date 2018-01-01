@@ -29,7 +29,7 @@ public class UserServiceTest {
     public void saveTest() {
         User user = new User();
         user.setId(UtilUUId.getId());
-        user.setUserName("dd");
+        user.setUsername("dd");
         user.setPassword("aa");
         User save = userService.save(user);
         System.out.println(save);

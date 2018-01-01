@@ -2,7 +2,7 @@ package com.lazydsr.manager.config;
 
 import com.google.common.base.Throwables;
 import com.lazydsr.commons.result.ResultBody;
-import com.lazydsr.manager.base.STATIC_VALUE;
+import com.lazydsr.manager.base.STATIC_VAL;
 import com.lazydsr.util.json.UtilJson;
 import com.lazydsr.util.net.UtilAjax;
 import lombok.extern.slf4j.Slf4j;
@@ -40,7 +40,7 @@ public class GlobalExceptionHandler implements ErrorController {
     @RequestMapping(value = "/error")
     public ModelAndView handleError(Exception ex, Map map, HttpServletRequest request, HttpServletResponse response) throws Exception {
         //map=getInfo(request, response, ex);
-        return this.handleError(request, response, ex, STATIC_VALUE.VIEW_404, HttpStatus.NOT_FOUND);
+        return this.handleError(request, response, ex, STATIC_VAL.VIEW_404, HttpStatus.NOT_FOUND);
     }
 
     @Override
@@ -53,19 +53,19 @@ public class GlobalExceptionHandler implements ErrorController {
     public ModelAndView constraintViolationException(ConstraintViolationException ex, HttpServletRequest request, HttpServletResponse response) throws Exception {
 
         //return ResultBody.error(HttpStatus.BAD_REQUEST);
-        return this.handleError(request, response, ex, STATIC_VALUE.VIEW_400, HttpStatus.BAD_REQUEST);
+        return this.handleError(request, response, ex, STATIC_VAL.VIEW_400, HttpStatus.BAD_REQUEST);
     }
 
     @ExceptionHandler(value = {IllegalArgumentException.class})
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     public ModelAndView IllegalArgumentException(IllegalArgumentException ex, HttpServletRequest request, HttpServletResponse response) throws Exception {
-        return this.handleError(request, response, ex, STATIC_VALUE.VIEW_400, HttpStatus.BAD_REQUEST);
+        return this.handleError(request, response, ex, STATIC_VAL.VIEW_400, HttpStatus.BAD_REQUEST);
     }
 
     @ExceptionHandler(value = {NoHandlerFoundException.class})
     @ResponseStatus(HttpStatus.NOT_FOUND)
     public ModelAndView noHandlerFoundException(Exception ex, HttpServletRequest request, HttpServletResponse response) throws Exception {
-        return this.handleError(request, response, ex, STATIC_VALUE.VIEW_404, HttpStatus.NOT_FOUND);
+        return this.handleError(request, response, ex, STATIC_VAL.VIEW_404, HttpStatus.NOT_FOUND);
     }
 
 
@@ -80,15 +80,15 @@ public class GlobalExceptionHandler implements ErrorController {
         //map.put("stackTrace", ex.getStackTrace()[0]);
         //map.putAll(getInfo(request, response));
         //resultBody.setData(map);
-        return this.handleError(request, response, ex, STATIC_VALUE.VIEW_500, HttpStatus.INTERNAL_SERVER_ERROR);
+        return this.handleError(request, response, ex, STATIC_VAL.VIEW_500, HttpStatus.INTERNAL_SERVER_ERROR);
     }
 
     private Map<String, Object> getInfo(HttpServletRequest request, HttpServletResponse response, Exception ex) {
         Map<String, Object> map = new HashMap<String, Object>();
         map.put("path", request.getContextPath() + request.getRequestURI());
         map.put("clentIp", request.getRemoteAddr());
-        map.put("serverIp", STATIC_VALUE.SERVER_IP);
-        map.put("serverName", STATIC_VALUE.SERVER_NAME);
+        map.put("serverIp", STATIC_VAL.SERVER_IP);
+        map.put("serverName", STATIC_VAL.SERVER_NAME);
         map.put("errorMessage", ex.getMessage());
         map.put("stackTrace", Throwables.getStackTraceAsString(ex));
         map.put("isAjax", UtilAjax.isAjaxRequest(request));

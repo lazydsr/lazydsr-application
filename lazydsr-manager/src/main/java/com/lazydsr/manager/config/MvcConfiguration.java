@@ -1,10 +1,11 @@
 package com.lazydsr.manager.config;
 
+import com.lazydsr.manager.config.bean.UserInterceptorConfigBean;
 import com.lazydsr.manager.interceptor.UserInterceptor;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.boot.context.properties.ConfigurationProperties;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.PropertySource;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
@@ -18,12 +19,13 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
  * Info: 给静态资源添加额外的路径
  */
 @Configuration
-//@PropertySource("classpath:config/application-interceptor.yml")
-@PropertySource("classpath:config/interceptor.properties")
-@ConfigurationProperties
+@Slf4j
 public class MvcConfiguration extends WebMvcConfigurerAdapter {
-    @Value("${status}")
-    private boolean userStatus;
+    //@Value("${user.status}")
+    //private boolean userStatus;
+
+    @Autowired
+    private UserInterceptorConfigBean userStatus;
 
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
@@ -33,8 +35,9 @@ public class MvcConfiguration extends WebMvcConfigurerAdapter {
 
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
+        log.error(userStatus.toString());
         super.addInterceptors(registry);
-        if (userStatus) {
+        if (userStatus.isStatus()) {
             registry.addInterceptor(new UserInterceptor()).addPathPatterns("/**").excludePathPatterns("/error", "/login");
         }
     }
