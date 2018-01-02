@@ -2,6 +2,7 @@ package com.lazydsr.manager.config;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
@@ -16,22 +17,30 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
  */
 @Configuration
 @EnableWebSecurity
+@EnableGlobalMethodSecurity(prePostEnabled = true)  //AOP
 @Slf4j
-public class SecurityConfig extends WebSecurityConfigurerAdapter {
+public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         log.error("SecurityConfig start");
         //针对iframe拒绝的问题
         http.headers().frameOptions().disable();
+        //http
+        //        .authorizeRequests()
+        //        .antMatchers("/manager1/**").access("hasRole('READER')")
+        //        .antMatchers("/**").permitAll()
+        //        .and()
+        //        .formLogin()
+        //        .loginPage("/login")
+        //        .failureUrl("/login?error=true");
         http
-                .authorizeRequests()
-                .antMatchers("/manager1/**").access("hasRole('READER')")
-                .antMatchers("/**").permitAll()
-                .and()
-                .formLogin()
-                .loginPage("/login")
-                .failureUrl("/login?error=true");
+                .formLogin()                        //启用默认登陆页面
+                .failureUrl("/login?error")         //登陆失败返回URL:/login?error
+                .defaultSuccessUrl("/")         //登陆成功跳转URL
+                .permitAll();                       //登陆页面全部权限可访问
+
+        super.configure(http);
         http.csrf().disable();
         log.error("SecurityConfig start success");
     }

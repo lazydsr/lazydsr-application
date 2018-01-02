@@ -1,12 +1,12 @@
 package com.lazydsr.manager.po;
 
 import lombok.Data;
-import org.hibernate.annotations.Table;
 
 import javax.annotation.Nullable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import java.util.Date;
 
@@ -20,17 +20,19 @@ import java.util.Date;
  */
 @Data
 @Entity
+@Table(name = "sys_user")
 public class User {
     @Id
     String id;
     /**
      * 编号
      */
+    @Column(unique = true)
     String workcode;
     /**
      * 用户名
      */
-    @Column(name = "username")
+    @Column(name = "username", unique = true)
     @NotNull
     String username;
     /**
