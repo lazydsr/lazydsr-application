@@ -32,8 +32,7 @@ public class User {
     /**
      * 用户名
      */
-    @Column(name = "username", unique = true)
-    @NotNull
+    @Column(name = "username", unique = true,nullable = false)
     String username;
     /**
      * 密码

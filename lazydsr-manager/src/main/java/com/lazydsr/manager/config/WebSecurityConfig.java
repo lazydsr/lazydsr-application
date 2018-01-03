@@ -2,6 +2,7 @@ package com.lazydsr.manager.config;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
@@ -26,22 +27,34 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         log.error("SecurityConfig start");
         //针对iframe拒绝的问题
         http.headers().frameOptions().disable();
-        //http
-        //        .authorizeRequests()
-        //        .antMatchers("/manager1/**").access("hasRole('READER')")
-        //        .antMatchers("/**").permitAll()
-        //        .and()
-        //        .formLogin()
-        //        .loginPage("/login")
-        //        .failureUrl("/login?error=true");
         http
-                .formLogin()                        //启用默认登陆页面
-                .failureUrl("/login?error")         //登陆失败返回URL:/login?error
-                .defaultSuccessUrl("/")         //登陆成功跳转URL
-                .permitAll();                       //登陆页面全部权限可访问
+                .authorizeRequests()
+                .antMatchers("/static/**").permitAll()
+                .antMatchers("/login").permitAll()
+                .antMatchers("/logout").permitAll()
+                .antMatchers("/manager1/**").access("hasRole('ADMIN')")
+                .and()
+                .formLogin()
+                .loginPage("/login")
+                .failureUrl("/login?error=true");
+        //http
+        //        .formLogin()                        //启用默认登陆页面
+        //        .failureUrl("/login?error")         //登陆失败返回URL:/login?error
+        //        .defaultSuccessUrl("/")         //登陆成功跳转URL
+        //        .permitAll();                       //登陆页面全部权限可访问
 
         super.configure(http);
         http.csrf().disable();
         log.error("SecurityConfig start success");
+    }
+
+    @Override
+    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+        super.configure(auth);
+        auth
+                .inMemoryAuthentication()
+                .withUser("admin")
+                .password("admin")
+                .roles("ADMIN");
     }
 }

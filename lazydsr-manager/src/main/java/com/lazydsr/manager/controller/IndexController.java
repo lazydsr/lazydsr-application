@@ -18,8 +18,7 @@ import org.springframework.web.servlet.ModelAndView;
 @RequestMapping("/")
 public class IndexController {
     @RequestMapping("/")
-    public ModelAndView home(ModelAndView model) {
-        model.setViewName("ftl/index");
-        return model;
+    public String home(ModelAndView model) {
+        return "forward:/home/index";
     }
 }
