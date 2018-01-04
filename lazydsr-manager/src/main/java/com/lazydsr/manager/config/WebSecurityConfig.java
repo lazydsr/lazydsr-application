@@ -54,7 +54,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         auth
                 .inMemoryAuthentication()
                 .withUser("admin")
-                .password("admin")
+                .password("Lazy@dsr")
                 .roles("ADMIN");
     }
 }
