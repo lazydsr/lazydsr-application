@@ -2,17 +2,17 @@
 <html lang="zh">
 <head>
     <!--
-       404
+       error
        PROJECT_NAME: lazydsr-application
        PACKAGE_NAME: templates.ftl
-       Created by Lazy on 2018/1/1 21:47
+       Created by Lazy on 2018/1/4 13:02
        Version: 0.1
        Info: @TODO:...
     -->
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>error</title>
 </head>
 <body>
-<h1>404</h1>
+<h2>404</h2>
 </body>
 </html>

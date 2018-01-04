@@ -1,8 +1,6 @@
 package com.lazydsr.manager.controller;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.servlet.ModelAndView;
 
 /**
  * HomeController
@@ -13,11 +11,6 @@ import org.springframework.web.servlet.ModelAndView;
  * Info: @TODO:...
  */
 @Controller
-@RequestMapping("/home")
 public class HomeController {
-    @RequestMapping({"/", "index"})
-    public ModelAndView index(ModelAndView model) {
-        model.setViewName("ftl/home/index");
-        return model;
-    }
+
 }
