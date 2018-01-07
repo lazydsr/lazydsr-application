@@ -1,6 +1,6 @@
 #server port
 server:
-  port: 82
+  port: 8000
   context-path: /manager
 #spring:
 #  datasource:
