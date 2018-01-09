@@ -1,6 +1,8 @@
 package com.lazydsr.manager.po;
 
 import lombok.Data;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.annotation.Nullable;
 import javax.persistence.Column;
@@ -8,6 +10,7 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
+import java.util.Collection;
 import java.util.Date;
 
 /**
@@ -21,7 +24,7 @@ import java.util.Date;
 @Data
 @Entity
 @Table(name = "sys_user")
-public class User {
+public class User implements UserDetails{
     @Id
     String id;
     /**
@@ -123,4 +126,29 @@ public class User {
      */
     @Column(name = "datastatus")
     int dataStatus = 0;
+
+    @Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        return null;
+    }
+
+    @Override
+    public boolean isAccountNonExpired() {
+        return false;
+    }
+
+    @Override
+    public boolean isAccountNonLocked() {
+        return false;
+    }
+
+    @Override
+    public boolean isCredentialsNonExpired() {
+        return false;
+    }
+
+    @Override
+    public boolean isEnabled() {
+        return false;
+    }
 }
