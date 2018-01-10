@@ -18,10 +18,10 @@ public class UserRepositoryImpl implements UserCustomRepository {
     @Autowired
     private JdbcTemplate jdbcTemplate;
 
-    @Override
-    public List<String> findUserNameBytest() {
-        //jdbcTemplate.query("select count(1) from user",new RowMapperResultSetExtractor<Integer>());
-        List<String> idList = jdbcTemplate.queryForList("select id from user", String.class);
-        return idList;
-    }
+    //@Override
+    //public List<String> findUserNameBytest() {
+    //    //jdbcTemplate.query("select count(1) from user",new RowMapperResultSetExtractor<Integer>());
+    //    List<String> idList = jdbcTemplate.queryForList("select id from user", String.class);
+    //    return idList;
+    //}
 }

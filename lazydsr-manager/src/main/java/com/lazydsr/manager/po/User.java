@@ -24,7 +24,7 @@ import java.util.Date;
 @Data
 @Entity
 @Table(name = "sys_user")
-public class User implements UserDetails{
+public class User implements UserDetails {
     @Id
     String id;
     /**
@@ -35,7 +35,7 @@ public class User implements UserDetails{
     /**
      * 用户名
      */
-    @Column(name = "username", unique = true,nullable = false)
+    @Column(name = "username", unique = true, nullable = false)
     String username;
     /**
      * 密码
@@ -100,7 +100,7 @@ public class User implements UserDetails{
     /**
      * 账号状态
      */
-    int status = 1;
+    int status = 0;
 
     /**
      * 创建人
@@ -123,6 +123,8 @@ public class User implements UserDetails{
     Date lastModifyDateTime = new Date();
     /**
      * 数据状态
+     * 0 为正常
+     * 1 为删除
      */
     @Column(name = "datastatus")
     int dataStatus = 0;

@@ -12,6 +12,7 @@ import java.util.List;
  * Version: 0.1
  * Info: User复杂业务自定义Dao接口
  */
+
 public interface UserCustomRepository {
-    List<String> findUserNameBytest();
+    //List<String> findUserNameBytest();
 }

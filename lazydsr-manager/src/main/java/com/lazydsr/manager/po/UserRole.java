@@ -23,9 +23,9 @@ public class UserRole {
     @Id
     String id;
     @Column(name = "userid")
-    String userId;
-    @Column(name = "roleId")
-    String roleId;
+    String userid;
+    @Column(name = "roleid")
+    String roleid;
 
 
     /**
@@ -49,6 +49,8 @@ public class UserRole {
     Date lastModifyDateTime = new Date();
     /**
      * 数据状态
+     * 0 为正常
+     * 1 为删除
      */
     @Column(name = "datastatus")
     int dataStatus = 0;

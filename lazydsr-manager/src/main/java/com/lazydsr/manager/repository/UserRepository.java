@@ -18,9 +18,10 @@ import java.util.List;
  */
 @Repository
 public interface UserRepository extends JpaRepository<User, String>,UserCustomRepository {
-    @Query(value = "select * from user t where username=?1", nativeQuery = true)
-    List<User> findUserByName(@Param("username") String username);
-
-    @Query(value = "select t from User t where username=?1")
-    List<User> findUserByName2(@Param("username") String username);
+    //@Query(value = "select * from user t where username=?1", nativeQuery = true)
+    //List<User> findUserByName(@Param("username") String username);
+    //
+    //@Query(value = "select t from User t where username=?1")
+    //List<User> findUserByName2(@Param("username") String username);
+    User findUserByUsername(String username);
 }

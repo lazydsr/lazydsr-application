@@ -9,26 +9,29 @@ import javax.persistence.Table;
 import java.util.Date;
 
 /**
- * Role
+ * PermissionRepository
  * PROJECT_NAME: lazydsr-application
  * PACKAGE_NAME: com.lazydsr.manager.po
- * Created by Lazy on 2018/1/9 21:46
+ * Created by Lazy on 2018/1/10 21:48
  * Version: 0.1
- * Info: 系统角色表
+ * Info:权限po
  */
 @Data
 @Entity
-@Table(name = "sys_role")
-public class Role {
+@Table(name = "sys_permission")
+public class Permission {
     @Id
     String id;
     @Column(unique = true, nullable = false)
     String name;
+    String url;
+    @Column(name = "parentId")
+    String parentid;
     String description;
 
 
     /**
-     * 角色状态
+     * 权限状态
      * 0  启用
      * 1  禁用
      */
@@ -60,5 +63,4 @@ public class Role {
      */
     @Column(name = "datastatus")
     int dataStatus = 0;
-
 }

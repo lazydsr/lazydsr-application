@@ -22,38 +22,38 @@ import java.util.List;
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class UserServiceTest {
-    @Autowired
-    private UserService userService;
-
-    @Test
-    public void saveTest() {
-        User user = new User();
-        user.setId(UtilUUId.getId());
-        user.setUsername("dd");
-        user.setPassword("aa");
-        User save = userService.save(user);
-        System.out.println(save);
-    }
-
-    @Test
-    public void findById() {
-        User user = userService.findUserById("9WWVPTWPKYSXB93KNESAY8RSBUUBMFVH");
-        System.out.println(user);
-    }
-
-    @Test
-    public void findByUserName() {
-        System.out.println("findUserByName start");
-        List<User> users = userService.findUserByName("dd");
-        System.out.println(users);
-        System.out.println("findUserByName stop");
-    }
-    @Test
-    public void findByUserName2() {
-        System.out.println("findUserByName2 start");
-        List<User> users = userService.findUserByName2("dd");
-        System.out.println(users);
-        System.out.println("findUserByName2 stop");
-    }
+    //@Autowired
+    //private UserService userService;
+    //
+    //@Test
+    //public void saveTest() {
+    //    User user = new User();
+    //    user.setId(UtilUUId.getId());
+    //    user.setUsername("dd");
+    //    user.setPassword("aa");
+    //    User save = userService.save(user);
+    //    System.out.println(save);
+    //}
+    //
+    //@Test
+    //public void findById() {
+    //    User user = userService.findUserById("9WWVPTWPKYSXB93KNESAY8RSBUUBMFVH");
+    //    System.out.println(user);
+    //}
+    //
+    //@Test
+    //public void findByUserName() {
+    //    System.out.println("findUserByName start");
+    //    List<User> users = userService.findUserByName("dd");
+    //    System.out.println(users);
+    //    System.out.println("findUserByName stop");
+    //}
+    //@Test
+    //public void findByUserName2() {
+    //    System.out.println("findUserByName2 start");
+    //    List<User> users = userService.findUserByName2("dd");
+    //    System.out.println(users);
+    //    System.out.println("findUserByName2 stop");
+    //}
 
 }
